@@ -1,243 +1,724 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integral360</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Integral360 | Soluciones Integrales</title>
+  <meta name="description" content="Integral360: soluciones integrales en SST, jurídica, contable, recursos humanos, MIPG y tecnología." />
+  <style>
+    :root{
+      --bg:#0b0b0d;
+      --bg-soft:#121216;
+      --card:#17171d;
+      --card-2:#1c1c24;
+      --gold:#d4af37;
+      --gold-soft:#e6c75f;
+      --text:#f5f5f7;
+      --muted:#c2c2ca;
+      --line:rgba(212,175,55,.18);
+      --shadow:0 14px 34px rgba(0,0,0,.28);
+      --max:1150px;
+      --radius:22px;
+    }
 
-<style>
-body{
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#0b0b0b;
-  color:#fff;
-}
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
 
-/* NAV */
-nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 25px;
-  border-bottom:1px solid #222;
-}
+    html{
+      scroll-behavior:smooth;
+    }
 
-nav img{
-  width:140px;
-}
+    body{
+      font-family: Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(212,175,55,.08), transparent 28%),
+        linear-gradient(180deg, #080809 0%, #0d0d11 100%);
+      color:var(--text);
+      line-height:1.55;
+    }
 
-nav a{
-  color:#fff;
-  text-decoration:none;
-  margin-left:15px;
-  font-size:14px;
-}
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-/* HERO */
-.hero{
-  text-align:center;
-  padding:80px 20px;
-}
+    img{
+      max-width:100%;
+      display:block;
+    }
 
-.hero h1{
-  font-size:36px;
-}
+    .container{
+      width:100%;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:0 20px;
+    }
 
-.hero span{
-  color:#d4af37;
-}
+    .topbar{
+      position:sticky;
+      top:0;
+      z-index:1000;
+      background:rgba(11,11,13,.88);
+      backdrop-filter:blur(10px);
+      border-bottom:1px solid rgba(255,255,255,.05);
+    }
 
-.hero p{
-  color:#ccc;
-  margin-top:10px;
-  max-width:700px;
-  margin:auto;
-  line-height:1.6;
-}
+    .nav{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
 
-.btn{
-  display:inline-block;
-  margin:20px 10px;
-  padding:14px 25px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:bold;
-}
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
 
-.btn.gold{
-  background:#d4af37;
-  color:#000;
-}
+    .brand img{
+      width:165px;
+      height:auto;
+    }
 
-.btn.dark{
-  background:#1a1a1a;
-  color:#fff;
-}
+    .menu{
+      display:flex;
+      gap:22px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
 
-/* SECCIONES */
-.section{
-  padding:60px 20px;
-  max-width:1000px;
-  margin:auto;
-}
+    .menu a{
+      font-size:14px;
+      color:#e8e8ec;
+      transition:.2s ease;
+    }
 
-.section h2{
-  color:#d4af37;
-  margin-bottom:20px;
-  text-align:center;
-}
+    .menu a:hover{
+      color:var(--gold-soft);
+    }
 
-/* SERVICIOS */
-.services{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:20px;
-}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      padding:14px 22px;
+      border-radius:14px;
+      font-weight:700;
+      transition:.2s ease;
+      border:1px solid transparent;
+      cursor:pointer;
+    }
 
-.service{
-  background:#161616;
-  padding:20px;
-  border-radius:15px;
-  border:1px solid #222;
-  transition:0.2s;
-}
+    .btn-primary{
+      background:linear-gradient(180deg,var(--gold),#bb9525);
+      color:#111;
+      box-shadow:0 10px 24px rgba(212,175,55,.20);
+    }
 
-.service:hover{
-  border:1px solid #d4af37;
-  transform:translateY(-5px);
-}
+    .btn-primary:hover{
+      transform:translateY(-2px);
+      background:linear-gradient(180deg,#e6c75e,#c89e29);
+    }
 
-.service h3{
-  margin-bottom:10px;
-}
+    .btn-secondary{
+      background:rgba(255,255,255,.03);
+      border-color:rgba(212,175,55,.20);
+      color:#fff;
+    }
 
-.service p{
-  color:#ccc;
-  line-height:1.5;
-  font-size:14px;
-}
+    .btn-secondary:hover{
+      transform:translateY(-2px);
+      border-color:rgba(212,175,55,.40);
+      background:rgba(255,255,255,.05);
+    }
 
-/* CONTACTO */
-.contact{
-  text-align:center;
-}
+    .hero{
+      padding:88px 0 70px;
+    }
 
-.contact p{
-  color:#ccc;
-  margin-bottom:20px;
-}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:30px;
+      align-items:center;
+    }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:20px;
-  border-top:1px solid #222;
-  color:#888;
-}
-</style>
+    .hero-copy h1{
+      font-size:52px;
+      line-height:1.05;
+      margin-bottom:18px;
+    }
+
+    .hero-copy h1 span{
+      color:var(--gold);
+    }
+
+    .hero-copy p{
+      font-size:18px;
+      color:var(--muted);
+      max-width:700px;
+      margin-bottom:28px;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:30px;
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+      margin-top:14px;
+    }
+
+    .hero-point{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px 16px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-point strong{
+      display:block;
+      font-size:22px;
+      color:var(--gold-soft);
+      margin-bottom:4px;
+    }
+
+    .hero-point span{
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .hero-card h3{
+      color:var(--gold-soft);
+      margin-bottom:14px;
+      font-size:20px;
+    }
+
+    .hero-card p{
+      color:var(--muted);
+      font-size:15px;
+      margin-bottom:12px;
+    }
+
+    section{
+      padding:70px 0;
+    }
+
+    .section-head{
+      text-align:center;
+      max-width:820px;
+      margin:0 auto 36px;
+    }
+
+    .section-head h2{
+      font-size:38px;
+      color:#fff;
+      margin-bottom:12px;
+    }
+
+    .section-head h2 span{
+      color:var(--gold);
+    }
+
+    .section-head p{
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .about-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:26px;
+      box-shadow:var(--shadow);
+    }
+
+    .card h3{
+      font-size:22px;
+      color:var(--gold-soft);
+      margin-bottom:12px;
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .services-grid{
+      display:grid;
+      grid-template-columns:repeat(3, 1fr);
+      gap:20px;
+    }
+
+    .service-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:24px;
+      box-shadow:var(--shadow);
+      transition:.2s ease;
+    }
+
+    .service-card:hover{
+      transform:translateY(-5px);
+      border-color:rgba(212,175,55,.40);
+    }
+
+    .service-card .icon{
+      width:46px;
+      height:46px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(212,175,55,.10);
+      border:1px solid rgba(212,175,55,.18);
+      font-size:21px;
+      margin-bottom:14px;
+    }
+
+    .service-card h3{
+      font-size:20px;
+      margin-bottom:10px;
+      color:#fff;
+    }
+
+    .service-card p{
+      color:var(--muted);
+      font-size:14px;
+    }
+
+    .why-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .why-item{
+      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+
+    .why-item strong{
+      display:block;
+      margin-bottom:8px;
+      color:var(--gold-soft);
+      font-size:17px;
+    }
+
+    .why-item p{
+      font-size:14px;
+      color:var(--muted);
+    }
+
+    .contact-wrap{
+      display:grid;
+      grid-template-columns:1fr .9fr;
+      gap:24px;
+    }
+
+    .contact-list{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+
+    .contact-item{
+      background:rgba(255,255,255,.02);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:16px 18px;
+    }
+
+    .contact-item strong{
+      display:block;
+      margin-bottom:4px;
+      color:var(--gold-soft);
+    }
+
+    .contact-item span, .contact-item a{
+      color:var(--muted);
+      font-size:15px;
+    }
+
+    .cta-box{
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:linear-gradient(180deg, rgba(212,175,55,.12), rgba(212,175,55,.04));
+      border:1px solid rgba(212,175,55,.24);
+      border-radius:24px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+
+    .cta-box h3{
+      font-size:28px;
+      margin-bottom:12px;
+    }
+
+    .cta-box p{
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    footer{
+      border-top:1px solid rgba(255,255,255,.06);
+      padding:24px 0 34px;
+      color:#90909a;
+      font-size:14px;
+      text-align:center;
+    }
+
+    @media (max-width: 980px){
+      .hero-grid,
+      .about-grid,
+      .contact-wrap{
+        grid-template-columns:1fr;
+      }
+
+      .services-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .why-grid{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-copy h1{
+        font-size:42px;
+      }
+    }
+
+    @media (max-width: 680px){
+      .menu{
+        display:none;
+      }
+
+      .hero{
+        padding:64px 0 54px;
+      }
+
+      .hero-copy h1{
+        font-size:34px;
+      }
+
+      .hero-copy p{
+        font-size:16px;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .services-grid,
+      .why-grid{
+        grid-template-columns:1fr;
+      }
+
+      .section-head h2{
+        font-size:30px;
+      }
+
+      .brand img{
+        width:145px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- NAV -->
-<nav>
-  <img src="logo.png">
-  <div>
-    <a href="#servicios">Servicios</a>
-    <a href="#contacto">Contacto</a>
+  <div class="topbar">
+    <div class="container nav">
+      <div class="brand">
+        <img src="logo.png" alt="Integral360">
+      </div>
+
+      <div class="menu">
+        <a href="#inicio">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#porque">Por qué elegirnos</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+    </div>
   </div>
-</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <h1>Integral<span>360</span></h1>
-  <p>
-    Brindamos soluciones integrales orientadas al fortalecimiento de la gestión empresarial
-    y organizacional, combinando conocimiento técnico, acompañamiento estratégico y herramientas
-    tecnológicas que permiten optimizar procesos, mejorar el control interno y apoyar la toma
-    de decisiones.
-  </p>
+  <main>
+    <section class="hero" id="inicio">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <h1>Soluciones <span>integrales</span> para fortalecer tu organización</h1>
+          <p>
+            En Integral360 acompañamos a empresas, instituciones y equipos de trabajo
+            con soluciones orientadas a mejorar la gestión, ordenar procesos,
+            fortalecer la operación y apoyar la transformación organizacional desde
+            una visión integral.
+          </p>
 
-  <a href="https://wa.me/573162410970" class="btn gold">Contactar</a>
-</section>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/573162410970" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn-secondary" href="tel:+573162410970">Llamar ahora</a>
+          </div>
 
-<!-- SERVICIOS -->
-<section class="section" id="servicios">
-  <h2>Servicios</h2>
+          <div class="hero-points">
+            <div class="hero-point">
+              <strong>Integral</strong>
+              <span>Servicios articulados en diferentes frentes de gestión.</span>
+            </div>
+            <div class="hero-point">
+              <strong>Práctico</strong>
+              <span>Soluciones pensadas para resolver necesidades reales.</span>
+            </div>
+            <div class="hero-point">
+              <strong>Escalable</strong>
+              <span>Procesos y herramientas que crecen con tu organización.</span>
+            </div>
+          </div>
+        </div>
 
-  <div class="services">
+        <div class="hero-card">
+          <h3>Enfoque corporativo y estratégico</h3>
+          <p>
+            Nuestra propuesta integra acompañamiento profesional, estructura
+            documental, fortalecimiento administrativo y apoyo tecnológico para
+            impulsar organizaciones más ordenadas, eficientes y sostenibles.
+          </p>
+          <p>
+            Trabajamos con una visión orientada a resultados, buscando que cada
+            intervención se traduzca en valor real para la operación y la toma de decisiones.
+          </p>
+        </div>
+      </div>
+    </section>
 
-    <div class="service">
-      <h3>Seguridad y Salud en el Trabajo (SST)</h3>
-      <p>
-        Apoyamos la implementación, actualización y seguimiento de sistemas de gestión en Seguridad
-        y Salud en el Trabajo, fortaleciendo la prevención de riesgos, el cumplimiento normativo y la
-        organización documental requerida por la normativa vigente.
-      </p>
-    </div>
+    <section id="nosotros">
+      <div class="container">
+        <div class="section-head">
+          <h2>Sobre <span>Integral360</span></h2>
+          <p>
+            Somos una propuesta de servicios integrales orientada a apoyar el
+            fortalecimiento organizacional desde distintos frentes clave de gestión.
+          </p>
+        </div>
 
-    <div class="service">
-      <h3>Asesoría Jurídica</h3>
-      <p>
-        Brindamos acompañamiento en la estructuración de documentos, elaboración de comunicaciones
-        formales, revisión de procesos administrativos y orientación en aspectos jurídicos aplicables
-        a la gestión institucional y empresarial.
-      </p>
-    </div>
+        <div class="about-grid">
+          <div class="card">
+            <h3>Quiénes somos</h3>
+            <p>
+              Integral360 nace con el propósito de brindar acompañamiento integral
+              a empresas, entidades e instituciones que requieren apoyo en áreas
+              administrativas, jurídicas, estratégicas y tecnológicas, con una mirada
+              práctica y orientada a la mejora continua.
+            </p>
+          </div>
 
-    <div class="service">
-      <h3>Gestión Contable y Administrativa</h3>
-      <p>
-        Apoyamos la organización de la información administrativa y contable, fortaleciendo los
-        procesos internos, el control documental y la correcta estructuración de la gestión financiera
-        de la organización.
-      </p>
-    </div>
+          <div class="card">
+            <h3>Nuestra visión de trabajo</h3>
+            <p>
+              Entendemos que las organizaciones necesitan algo más que servicios aislados.
+              Por eso articulamos diferentes capacidades para ofrecer soluciones que ayuden
+              a ordenar, optimizar, modernizar y fortalecer la gestión desde una perspectiva completa.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div class="service">
-      <h3>Recursos Humanos</h3>
-      <p>
-        Diseñamos e implementamos herramientas para la gestión del talento humano, incluyendo control
-        documental, contratos, seguimiento de personal y optimización de procesos internos relacionados
-        con la administración del recurso humano.
-      </p>
-    </div>
+    <section id="servicios">
+      <div class="container">
+        <div class="section-head">
+          <h2>Nuestros <span>servicios</span></h2>
+          <p>
+            Desarrollamos soluciones adaptadas a las necesidades de cada organización,
+            integrando conocimiento técnico, gestión documental, acompañamiento estratégico
+            y herramientas para mejorar el desempeño institucional y empresarial.
+          </p>
+        </div>
 
-    <div class="service">
-      <h3>MIPG y Gestión Institucional</h3>
-      <p>
-        Acompañamos a entidades en el fortalecimiento de su gestión institucional mediante la
-        organización de información, apoyo documental y estructuración de procesos alineados con el
-        Modelo Integrado de Planeación y Gestión (MIPG).
-      </p>
-    </div>
+        <div class="services-grid">
+          <article class="service-card">
+            <div class="icon">🛡️</div>
+            <h3>Seguridad y Salud en el Trabajo (SST)</h3>
+            <p>
+              Apoyamos procesos de implementación, actualización y seguimiento en
+              Seguridad y Salud en el Trabajo, fortaleciendo la prevención, el
+              cumplimiento normativo y la organización documental requerida para
+              una gestión responsable y estructurada.
+            </p>
+          </article>
 
-    <div class="service">
-      <h3>Tecnología y Transformación Digital</h3>
-      <p>
-        Desarrollamos e implementamos soluciones tecnológicas orientadas a la automatización de procesos,
-        digitalización de la información y mejora de la eficiencia operativa mediante herramientas
-        modernas y adaptadas a cada organización.
-      </p>
-    </div>
+          <article class="service-card">
+            <div class="icon">⚖️</div>
+            <h3>Asesoría jurídica</h3>
+            <p>
+              Brindamos acompañamiento en revisión documental, elaboración de
+              comunicaciones formales, apoyo a trámites administrativos y orientación
+              en aspectos jurídicos aplicables a la gestión institucional y empresarial.
+            </p>
+          </article>
 
-  </div>
-</section>
+          <article class="service-card">
+            <div class="icon">📊</div>
+            <h3>Gestión contable y administrativa</h3>
+            <p>
+              Fortalecemos la organización administrativa y contable mediante apoyo en
+              estructuración de información, control documental y mejora de procesos internos
+              que aportan orden, claridad y seguimiento a la gestión.
+            </p>
+          </article>
 
-<!-- CONTACTO -->
-<section class="section contact" id="contacto">
-  <h2>Contacto</h2>
-  <p>
-    Contáctanos para conocer cómo Integral360 puede apoyar el fortalecimiento de tu organización.
-  </p>
+          <article class="service-card">
+            <div class="icon">👥</div>
+            <h3>Recursos Humanos</h3>
+            <p>
+              Diseñamos y apoyamos herramientas para la gestión del talento humano,
+              incluyendo control documental, contratos, seguimiento de personal y
+              optimización de procesos relacionados con la administración del recurso humano.
+            </p>
+          </article>
 
-  <a href="https://wa.me/573162410970" class="btn gold">WhatsApp</a>
-  <a href="tel:+573162410970" class="btn dark">Llamar</a>
-</section>
+          <article class="service-card">
+            <div class="icon">🏛️</div>
+            <h3>MIPG y fortalecimiento institucional</h3>
+            <p>
+              Acompañamos entidades y organizaciones en la organización de información,
+              apoyo documental y estructuración de procesos alineados con lineamientos
+              de gestión institucional y mejora administrativa.
+            </p>
+          </article>
 
-<footer>
-  Integral360 © 2026
-</footer>
+          <article class="service-card">
+            <div class="icon">💻</div>
+            <h3>Tecnología y transformación digital</h3>
+            <p>
+              Impulsamos la modernización mediante soluciones tecnológicas, automatización
+              de procesos, digitalización de información y herramientas adaptadas a la realidad
+              operativa de cada organización.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="porque">
+      <div class="container">
+        <div class="section-head">
+          <h2>¿Por qué <span>elegirnos</span>?</h2>
+          <p>
+            Nuestra propuesta combina cercanía, visión estratégica y capacidad de articulación
+            para entregar soluciones con sentido práctico y valor organizacional.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <div class="why-item">
+            <strong>Visión integral</strong>
+            <p>Unimos diferentes áreas de apoyo para responder de forma más completa a las necesidades del cliente.</p>
+          </div>
+
+          <div class="why-item">
+            <strong>Enfoque práctico</strong>
+            <p>Priorizamos soluciones aplicables, ordenadas y orientadas a mejorar procesos reales.</p>
+          </div>
+
+          <div class="why-item">
+            <strong>Adaptación al contexto</strong>
+            <p>Cada propuesta se ajusta a la naturaleza, objetivos y condiciones de la organización.</p>
+          </div>
+
+          <div class="why-item">
+            <strong>Apoyo tecnológico</strong>
+            <p>Incorporamos herramientas digitales como soporte para fortalecer la operación y la gestión.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto">
+      <div class="container">
+        <div class="section-head">
+          <h2>Hablemos de tu <span>organización</span></h2>
+          <p>
+            Estamos listos para acompañarte con soluciones integrales ajustadas a tus necesidades.
+          </p>
+        </div>
+
+        <div class="contact-wrap">
+          <div class="card">
+            <h3>Datos de contacto</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/573162410970" target="_blank" rel="noopener noreferrer">+57 316 241 0970</a>
+              </div>
+
+              <div class="contact-item">
+                <strong>Línea telefónica</strong>
+                <a href="tel:+573162410970">+57 316 241 0970</a>
+              </div>
+
+              <div class="contact-item">
+                <strong>Correo electrónico</strong>
+                <span>contacto@integral360.com.co</span>
+              </div>
+
+              <div class="contact-item">
+                <strong>Sitio corporativo</strong>
+                <span>integral360.com.co</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <h3>Solicita información</h3>
+            <p>
+              Cuéntanos qué necesita tu organización y conversemos sobre la mejor forma
+              de apoyarte desde Integral360.
+            </p>
+            <div style="display:flex; gap:12px; flex-wrap:wrap;">
+              <a class="btn btn-primary" href="https://wa.me/573162410970" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+              <a class="btn btn-secondary" href="tel:+573162410970">Llamar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Integral360 © 2026 · Soluciones integrales para empresas, instituciones y organizaciones
+  </footer>
 
 </body>
 </html>
