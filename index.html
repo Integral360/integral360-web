@@ -50,6 +50,11 @@
       display:block;
     }
 
+    p{
+      text-align: justify;
+      text-justify: inter-word;
+    }
+
     .container{
       width:100%;
       max-width:var(--max);
@@ -61,7 +66,7 @@
       position:sticky;
       top:0;
       z-index:1000;
-      background:rgba(11,11,13,.88);
+      background:rgba(11,11,13,.92);
       backdrop-filter:blur(10px);
       border-bottom:1px solid rgba(255,255,255,.05);
     }
@@ -72,6 +77,9 @@
       align-items:center;
       justify-content:space-between;
       gap:20px;
+      flex-wrap:wrap;
+      padding-top:10px;
+      padding-bottom:10px;
     }
 
     .brand{
@@ -90,6 +98,7 @@
       gap:22px;
       align-items:center;
       flex-wrap:wrap;
+      justify-content:flex-end;
     }
 
     .menu a{
@@ -153,6 +162,7 @@
       font-size:52px;
       line-height:1.05;
       margin-bottom:18px;
+      text-align:left;
     }
 
     .hero-copy h1 span{
@@ -198,6 +208,8 @@
     .hero-point span{
       font-size:13px;
       color:var(--muted);
+      display:block;
+      text-align:left;
     }
 
     .hero-card{
@@ -212,6 +224,7 @@
       color:var(--gold-soft);
       margin-bottom:14px;
       font-size:20px;
+      text-align:left;
     }
 
     .hero-card p{
@@ -263,6 +276,7 @@
       font-size:22px;
       color:var(--gold-soft);
       margin-bottom:12px;
+      text-align:left;
     }
 
     .card p{
@@ -307,6 +321,7 @@
       font-size:20px;
       margin-bottom:10px;
       color:#fff;
+      text-align:left;
     }
 
     .service-card p{
@@ -333,6 +348,7 @@
       margin-bottom:8px;
       color:var(--gold-soft);
       font-size:17px;
+      text-align:left;
     }
 
     .why-item p{
@@ -363,11 +379,13 @@
       display:block;
       margin-bottom:4px;
       color:var(--gold-soft);
+      text-align:left;
     }
 
     .contact-item span, .contact-item a{
       color:var(--muted);
       font-size:15px;
+      word-break:break-word;
     }
 
     .cta-box{
@@ -385,6 +403,7 @@
     .cta-box h3{
       font-size:28px;
       margin-bottom:12px;
+      text-align:left;
     }
 
     .cta-box p{
@@ -421,12 +440,30 @@
     }
 
     @media (max-width: 680px){
+      .topbar{
+        position:static;
+      }
+
+      .nav{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+
       .menu{
-        display:none;
+        display:flex;
+        width:100%;
+        justify-content:flex-start;
+        gap:14px;
+        row-gap:10px;
+      }
+
+      .menu a{
+        font-size:13px;
+        padding:8px 0;
       }
 
       .hero{
-        padding:64px 0 54px;
+        padding:54px 0 44px;
       }
 
       .hero-copy h1{
@@ -452,6 +489,16 @@
 
       .brand img{
         width:145px;
+      }
+
+      .hero-actions{
+        flex-direction:column;
+        align-items:stretch;
+      }
+
+      .hero-actions .btn,
+      .cta-box .btn{
+        width:100%;
       }
     }
   </style>
@@ -487,8 +534,8 @@
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/573162410970" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a class="btn btn-secondary" href="tel:+573162410970">Llamar ahora</a>
+            <a class="btn btn-primary" href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            <a class="btn btn-secondary" href="tel:+573163119312">Llamar ahora</a>
           </div>
 
           <div class="hero-points">
@@ -680,17 +727,17 @@
             <div class="contact-list">
               <div class="contact-item">
                 <strong>WhatsApp</strong>
-                <a href="https://wa.me/573162410970" target="_blank" rel="noopener noreferrer">+57 316 241 0970</a>
+                <a href="https://wa.me/57316313119312" target="_blank" rel="noopener noreferrer">3163119312</a>
               </div>
 
               <div class="contact-item">
                 <strong>Línea telefónica</strong>
-                <a href="tel:+573162410970">+57 316 241 0970</a>
+                <a href="tel:+57316313119312">316313119312</a>
               </div>
 
               <div class="contact-item">
                 <strong>Correo electrónico</strong>
-                <span>contacto@integral360.com.co</span>
+                <span>info@integral360.com.co</span>
               </div>
 
               <div class="contact-item">
@@ -707,8 +754,8 @@
               de apoyarte desde Integral360.
             </p>
             <div style="display:flex; gap:12px; flex-wrap:wrap;">
-              <a class="btn btn-primary" href="https://wa.me/573162410970" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
-              <a class="btn btn-secondary" href="tel:+573162410970">Llamar</a>
+              <a class="btn btn-primary" href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+              <a class="btn btn-secondary" href="tel:+573163119312">Llamar</a>
             </div>
           </div>
         </div>
