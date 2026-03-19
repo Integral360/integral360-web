@@ -4,759 +4,1175 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Integral360 | Soluciones Integrales</title>
-  <meta name="description" content="Integral360: soluciones integrales en SST, jurídica, contable, recursos humanos, MIPG y tecnología." />
+  <meta name="description" content="Integral360 ofrece soluciones empresariales integrales en SST, asesoría jurídica, gestión contable y administrativa, recursos humanos, MIPG, fortalecimiento institucional, tecnología y transformación digital." />
+  <meta name="theme-color" content="#0b0b0b" />
+
   <style>
-    :root{
-      --bg:#0b0b0d;
-      --bg-soft:#121216;
-      --card:#17171d;
-      --card-2:#1c1c24;
-      --gold:#d4af37;
-      --gold-soft:#e6c75f;
-      --text:#f5f5f7;
-      --muted:#c2c2ca;
-      --line:rgba(212,175,55,.18);
-      --shadow:0 14px 34px rgba(0,0,0,.28);
-      --max:1150px;
-      --radius:22px;
+    :root {
+      --bg: #0a0a0a;
+      --bg-2: #111111;
+      --card: #151515;
+      --gold: #c9a54c;
+      --gold-2: #e0c06f;
+      --text: #f7f7f7;
+      --muted: #c9c9c9;
+      --line: rgba(201, 165, 76, 0.2);
+      --white-line: rgba(255, 255, 255, 0.08);
+      --shadow: 0 16px 40px rgba(0, 0, 0, 0.28);
+      --radius: 20px;
+      --max-width: 1180px;
+      --transition: 0.3s ease;
     }
 
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    html{
-      scroll-behavior:smooth;
+    html {
+      scroll-behavior: smooth;
     }
 
-    body{
-      font-family: Arial, Helvetica, sans-serif;
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background:
-        radial-gradient(circle at top, rgba(212,175,55,.08), transparent 28%),
-        linear-gradient(180deg, #080809 0%, #0d0d11 100%);
-      color:var(--text);
-      line-height:1.55;
+        radial-gradient(circle at top right, rgba(201,165,76,0.10), transparent 18%),
+        radial-gradient(circle at bottom left, rgba(201,165,76,0.08), transparent 18%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    a{
-      color:inherit;
-      text-decoration:none;
+    a {
+      color: inherit;
+      text-decoration: none;
     }
 
-    img{
-      max-width:100%;
-      display:block;
-    }
-
-    p{
+    p {
       text-align: justify;
-      text-justify: inter-word;
     }
 
-    .container{
-      width:100%;
-      max-width:var(--max);
-      margin:0 auto;
-      padding:0 20px;
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
     }
 
-    .topbar{
-      position:sticky;
-      top:0;
-      z-index:1000;
-      background:rgba(11,11,13,.92);
-      backdrop-filter:blur(10px);
-      border-bottom:1px solid rgba(255,255,255,.05);
+    .section {
+      padding: 88px 0;
     }
 
-    .nav{
-      min-height:78px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      flex-wrap:wrap;
-      padding-top:10px;
-      padding-bottom:10px;
+    .section-header {
+      margin-bottom: 44px;
     }
 
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:14px;
+    .section-title {
+      font-size: clamp(1.9rem, 3vw, 2.9rem);
+      line-height: 1.1;
+      margin-bottom: 14px;
+      font-weight: 800;
     }
 
-    .brand img{
-      width:165px;
-      height:auto;
+    .section-text {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 1rem;
     }
 
-    .menu{
-      display:flex;
-      gap:22px;
-      align-items:center;
-      flex-wrap:wrap;
-      justify-content:flex-end;
+    .gold {
+      color: var(--gold-2);
     }
 
-    .menu a{
-      font-size:14px;
-      color:#e8e8ec;
-      transition:.2s ease;
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: var(--transition);
+      border: 1px solid transparent;
+      cursor: pointer;
     }
 
-    .menu a:hover{
-      color:var(--gold-soft);
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), #a6802c);
+      color: #101010;
+      box-shadow: 0 10px 28px rgba(201,165,76,0.25);
     }
 
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      padding:14px 22px;
-      border-radius:14px;
-      font-weight:700;
-      transition:.2s ease;
-      border:1px solid transparent;
-      cursor:pointer;
+    .btn-primary:hover {
+      transform: translateY(-2px);
     }
 
-    .btn-primary{
-      background:linear-gradient(180deg,var(--gold),#bb9525);
-      color:#111;
-      box-shadow:0 10px 24px rgba(212,175,55,.20);
+    .btn-secondary {
+      border: 1px solid var(--line);
+      color: var(--text);
+      background: transparent;
     }
 
-    .btn-primary:hover{
-      transform:translateY(-2px);
-      background:linear-gradient(180deg,#e6c75e,#c89e29);
+    .btn-secondary:hover {
+      border-color: rgba(201,165,76,0.45);
+      color: var(--gold-2);
     }
 
-    .btn-secondary{
-      background:rgba(255,255,255,.03);
-      border-color:rgba(212,175,55,.20);
-      color:#fff;
+    /* Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(10, 10, 10, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
     }
 
-    .btn-secondary:hover{
-      transform:translateY(-2px);
-      border-color:rgba(212,175,55,.40);
-      background:rgba(255,255,255,.05);
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
 
-    .hero{
-      padding:88px 0 70px;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.2fr .8fr;
-      gap:30px;
-      align-items:center;
+    .brand-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(201,165,76,0.18), rgba(201,165,76,0.05));
+      border: 1px solid rgba(201,165,76,0.25);
+      color: var(--gold-2);
+      font-weight: 800;
+      font-size: 0.95rem;
     }
 
-    .hero-copy h1{
-      font-size:52px;
-      line-height:1.05;
-      margin-bottom:18px;
-      text-align:left;
+    .brand-text h1 {
+      font-size: 1.05rem;
+      line-height: 1.1;
+      font-weight: 800;
     }
 
-    .hero-copy h1 span{
-      color:var(--gold);
+    .brand-text span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-top: 2px;
     }
 
-    .hero-copy p{
-      font-size:18px;
-      color:var(--muted);
-      max-width:700px;
-      margin-bottom:28px;
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 22px;
     }
 
-    .hero-actions{
-      display:flex;
-      gap:14px;
-      flex-wrap:wrap;
-      margin-bottom:30px;
+    nav a {
+      color: var(--muted);
+      transition: var(--transition);
+      font-size: 0.96rem;
     }
 
-    .hero-points{
-      display:grid;
-      grid-template-columns:repeat(3,1fr);
-      gap:14px;
-      margin-top:14px;
+    nav a:hover {
+      color: var(--gold-2);
     }
 
-    .hero-point{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:18px;
-      padding:18px 16px;
-      box-shadow:var(--shadow);
+    .nav-cta {
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--gold), #a6802c);
+      color: #101010;
+      font-weight: 700;
     }
 
-    .hero-point strong{
-      display:block;
-      font-size:22px;
-      color:var(--gold-soft);
-      margin-bottom:4px;
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border: 1px solid var(--line);
+      background: transparent;
+      border-radius: 12px;
+      cursor: pointer;
+      position: relative;
     }
 
-    .hero-point span{
-      font-size:13px;
-      color:var(--muted);
-      display:block;
-      text-align:left;
+    .menu-toggle span,
+    .menu-toggle::before,
+    .menu-toggle::after {
+      content: "";
+      position: absolute;
+      left: 11px;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      transition: var(--transition);
     }
 
-    .hero-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:28px;
-      padding:26px;
-      box-shadow:var(--shadow);
+    .menu-toggle span {
+      top: 21px;
     }
 
-    .hero-card h3{
-      color:var(--gold-soft);
-      margin-bottom:14px;
-      font-size:20px;
-      text-align:left;
+    .menu-toggle::before {
+      top: 15px;
     }
 
-    .hero-card p{
-      color:var(--muted);
-      font-size:15px;
-      margin-bottom:12px;
+    .menu-toggle::after {
+      top: 27px;
     }
 
-    section{
-      padding:70px 0;
+    .menu-toggle.active span {
+      opacity: 0;
     }
 
-    .section-head{
-      text-align:center;
-      max-width:820px;
-      margin:0 auto 36px;
+    .menu-toggle.active::before {
+      transform: rotate(45deg);
+      top: 21px;
     }
 
-    .section-head h2{
-      font-size:38px;
-      color:#fff;
-      margin-bottom:12px;
+    .menu-toggle.active::after {
+      transform: rotate(-45deg);
+      top: 21px;
     }
 
-    .section-head h2 span{
-      color:var(--gold);
+    /* Hero */
+    .hero {
+      padding: 90px 0 78px;
+      overflow: hidden;
     }
 
-    .section-head p{
-      color:var(--muted);
-      font-size:17px;
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 30px;
+      align-items: center;
     }
 
-    .about-grid{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:24px;
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(201,165,76,0.06);
+      color: var(--gold-2);
+      font-size: 0.92rem;
+      margin-bottom: 18px;
     }
 
-    .card{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      padding:26px;
-      box-shadow:var(--shadow);
+    .hero h2 {
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      line-height: 1.02;
+      font-weight: 800;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
     }
 
-    .card h3{
-      font-size:22px;
-      color:var(--gold-soft);
-      margin-bottom:12px;
-      text-align:left;
+    .hero p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      margin-bottom: 28px;
     }
 
-    .card p{
-      color:var(--muted);
-      font-size:15px;
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 28px;
     }
 
-    .services-grid{
-      display:grid;
-      grid-template-columns:repeat(3, 1fr);
-      gap:20px;
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
     }
 
-    .service-card{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:22px;
-      padding:24px;
-      box-shadow:var(--shadow);
-      transition:.2s ease;
+    .hero-point {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--white-line);
+      border-radius: 18px;
+      padding: 18px;
     }
 
-    .service-card:hover{
-      transform:translateY(-5px);
-      border-color:rgba(212,175,55,.40);
+    .hero-point strong {
+      display: block;
+      color: var(--gold-2);
+      margin-bottom: 6px;
+      font-size: 1rem;
     }
 
-    .service-card .icon{
-      width:46px;
-      height:46px;
-      border-radius:14px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background:rgba(212,175,55,.10);
-      border:1px solid rgba(212,175,55,.18);
-      font-size:21px;
-      margin-bottom:14px;
+    .hero-point span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: justify;
     }
 
-    .service-card h3{
-      font-size:20px;
-      margin-bottom:10px;
-      color:#fff;
-      text-align:left;
+    .hero-panel {
+      position: relative;
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    .service-card p{
-      color:var(--muted);
-      font-size:14px;
+    .hero-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(201,165,76,0.14), transparent 32%);
+      border-radius: inherit;
+      pointer-events: none;
     }
 
-    .why-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
+    .panel-label {
+      display: inline-block;
+      color: var(--gold-2);
+      font-size: 0.9rem;
+      margin-bottom: 14px;
+      border-bottom: 1px solid rgba(201,165,76,0.35);
+      padding-bottom: 4px;
     }
 
-    .why-item{
-      background:linear-gradient(180deg, rgba(255,255,255,.025), rgba(255,255,255,.01));
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:22px;
-      box-shadow:var(--shadow);
+    .panel-title {
+      font-size: 1.45rem;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 18px;
     }
 
-    .why-item strong{
-      display:block;
-      margin-bottom:8px;
-      color:var(--gold-soft);
-      font-size:17px;
-      text-align:left;
+    .panel-items {
+      display: grid;
+      gap: 14px;
     }
 
-    .why-item p{
-      font-size:14px;
-      color:var(--muted);
+    .panel-item {
+      padding: 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
     }
 
-    .contact-wrap{
-      display:grid;
-      grid-template-columns:1fr .9fr;
-      gap:24px;
+    .panel-item strong {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 1rem;
     }
 
-    .contact-list{
-      display:grid;
-      gap:14px;
-      margin-top:18px;
+    .panel-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.94rem;
+      text-align: justify;
     }
 
-    .contact-item{
-      background:rgba(255,255,255,.02);
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:16px 18px;
+    /* Trust strip */
+    .trust-strip {
+      padding-top: 0;
     }
 
-    .contact-item strong{
-      display:block;
-      margin-bottom:4px;
-      color:var(--gold-soft);
-      text-align:left;
+    .trust-box {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 24px;
+      align-items: center;
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 26px;
     }
 
-    .contact-item span, .contact-item a{
-      color:var(--muted);
-      font-size:15px;
-      word-break:break-word;
+    .trust-box h3 {
+      font-size: 1.3rem;
+      line-height: 1.2;
     }
 
-    .cta-box{
-      height:100%;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      background:linear-gradient(180deg, rgba(212,175,55,.12), rgba(212,175,55,.04));
-      border:1px solid rgba(212,175,55,.24);
-      border-radius:24px;
-      padding:28px;
-      box-shadow:var(--shadow);
+    .trust-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
     }
 
-    .cta-box h3{
-      font-size:28px;
-      margin-bottom:12px;
-      text-align:left;
+    .trust-tags span {
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--white-line);
+      color: var(--muted);
+      background: rgba(255,255,255,0.02);
+      font-size: 0.92rem;
     }
 
-    .cta-box p{
-      color:var(--muted);
-      margin-bottom:22px;
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
     }
 
-    footer{
-      border-top:1px solid rgba(255,255,255,.06);
-      padding:24px 0 34px;
-      color:#90909a;
-      font-size:14px;
-      text-align:center;
+    .about-card {
+      background: var(--card);
+      border: 1px solid var(--white-line);
+      border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
     }
 
-    @media (max-width: 980px){
+    .about-card h3 {
+      font-size: 1.28rem;
+      margin-bottom: 12px;
+      color: var(--gold-2);
+    }
+
+    .about-card p {
+      color: var(--muted);
+    }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--white-line);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(201,165,76,0.35);
+    }
+
+    .service-icon {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(201,165,76,0.08);
+      border: 1px solid rgba(201,165,76,0.2);
+      color: var(--gold-2);
+      font-size: 1.3rem;
+      margin-bottom: 18px;
+    }
+
+    .service-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 0.96rem;
+      margin-bottom: 16px;
+      min-height: 118px;
+    }
+
+    .service-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .service-card li {
+      position: relative;
+      padding-left: 18px;
+      color: #dddddd;
+      font-size: 0.93rem;
+    }
+
+    .service-card li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      top: -1px;
+      color: var(--gold-2);
+      font-size: 1.1rem;
+    }
+
+    /* Why choose us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .why-card {
+      background: rgba(255,255,255,0.02);
+      border: 1px solid var(--white-line);
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .why-card h4 {
+      margin-bottom: 10px;
+      color: var(--gold-2);
+      font-size: 1.04rem;
+    }
+
+    .why-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta-section {
+      padding-top: 26px;
+    }
+
+    .cta-box {
+      background:
+        linear-gradient(135deg, rgba(201,165,76,0.11), rgba(255,255,255,0.02)),
+        #111111;
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .cta-box h3 {
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.1;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: var(--muted);
+      max-width: 700px;
+    }
+
+    .cta-actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 24px;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: var(--card);
+      border: 1px solid var(--white-line);
+      border-radius: 22px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card h3,
+    .contact-form h3 {
+      font-size: 1.35rem;
+      margin-bottom: 16px;
+    }
+
+    .contact-card > p,
+    .contact-form > p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-item {
+      padding: 14px 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--gold-2);
+      font-size: 0.96rem;
+    }
+
+    .contact-item span,
+    .contact-item a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      word-break: break-word;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: #101010;
+      color: var(--text);
+      outline: none;
+      font-size: 0.96rem;
+      transition: var(--transition);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: rgba(201,165,76,0.45);
+      box-shadow: 0 0 0 4px rgba(201,165,76,0.08);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .form-note {
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      padding: 30px 0 40px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr 0.8fr;
+      gap: 24px;
+    }
+
+    .footer-col h4 {
+      color: var(--gold-2);
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .footer-col p,
+    .footer-col a {
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-brand p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      margin-top: 10px;
+    }
+
+    .copyright {
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      text-align: center;
+      font-size: 0.88rem;
+      color: #9f9f9f;
+    }
+
+    /* Animación suave */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
       .hero-grid,
+      .trust-box,
       .about-grid,
-      .contact-wrap{
-        grid-template-columns:1fr;
+      .cta-box,
+      .contact-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
       }
 
-      .services-grid{
-        grid-template-columns:1fr 1fr;
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .why-grid{
-        grid-template-columns:1fr 1fr;
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .hero-copy h1{
-        font-size:42px;
+      .cta-actions {
+        justify-content: flex-start;
       }
     }
 
-    @media (max-width: 680px){
-      .topbar{
-        position:static;
+    @media (max-width: 840px) {
+      .menu-toggle {
+        display: inline-block;
       }
 
-      .nav{
-        flex-direction:column;
-        align-items:flex-start;
+      nav {
+        position: absolute;
+        top: 79px;
+        left: 0;
+        width: 100%;
+        background: rgba(10,10,10,0.98);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 12px 4%;
+        display: none;
       }
 
-      .menu{
-        display:flex;
-        width:100%;
-        justify-content:flex-start;
-        gap:14px;
-        row-gap:10px;
+      nav.active {
+        display: flex;
       }
 
-      .menu a{
-        font-size:13px;
-        padding:8px 0;
+      nav a,
+      nav .nav-cta {
+        width: 100%;
+        padding: 14px 8px;
       }
 
-      .hero{
-        padding:54px 0 44px;
+      nav .nav-cta {
+        margin-top: 8px;
+        text-align: center;
       }
 
-      .hero-copy h1{
-        font-size:34px;
+      .hero {
+        padding-top: 60px;
       }
 
-      .hero-copy p{
-        font-size:16px;
-      }
-
-      .hero-points{
-        grid-template-columns:1fr;
-      }
-
+      .hero-points,
       .services-grid,
-      .why-grid{
-        grid-template-columns:1fr;
+      .why-grid,
+      .form-row {
+        grid-template-columns: 1fr;
       }
 
-      .section-head h2{
-        font-size:30px;
+      .service-card p {
+        min-height: auto;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section {
+        padding: 72px 0;
       }
 
-      .brand img{
-        width:145px;
+      .hero h2 {
+        font-size: 2.3rem;
       }
 
-      .hero-actions{
-        flex-direction:column;
-        align-items:stretch;
+      .hero p {
+        font-size: 1rem;
       }
 
-      .hero-actions .btn,
-      .cta-box .btn{
-        width:100%;
+      .btn {
+        width: 100%;
+      }
+
+      .hero-actions,
+      .cta-actions {
+        flex-direction: column;
+      }
+
+      .hero-panel,
+      .about-card,
+      .service-card,
+      .contact-card,
+      .contact-form,
+      .cta-box {
+        padding: 22px;
+      }
+
+      .brand-text h1 {
+        font-size: 0.98rem;
+      }
+
+      .brand-text span {
+        font-size: 0.76rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="topbar">
-    <div class="container nav">
-      <div class="brand">
-        <img src="logo.png" alt="Integral360">
-      </div>
+  <header>
+    <div class="container navbar">
+      <a href="#inicio" class="brand" aria-label="Ir al inicio">
+        <div class="brand-mark">I360</div>
+        <div class="brand-text">
+          <h1>Integral360</h1>
+          <span>Soluciones empresariales integrales</span>
+        </div>
+      </a>
 
-      <div class="menu">
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+      </button>
+
+      <nav id="navMenu">
         <a href="#inicio">Inicio</a>
         <a href="#nosotros">Nosotros</a>
         <a href="#servicios">Servicios</a>
         <a href="#porque">Por qué elegirnos</a>
         <a href="#contacto">Contacto</a>
-      </div>
+        <a href="#contacto" class="nav-cta">Solicitar asesoría</a>
+      </nav>
     </div>
-  </div>
+  </header>
 
   <main>
-    <section class="hero" id="inicio">
+    <section class="hero section" id="inicio">
       <div class="container hero-grid">
-        <div class="hero-copy">
-          <h1>Soluciones <span>integrales</span> para fortalecer tu organización</h1>
+        <div class="reveal">
+          <div class="hero-badge">Consultoría corporativa moderna para organizaciones en Colombia</div>
+          <h2>Soluciones integrales para <span class="gold">fortalecer tu organización</span></h2>
           <p>
-            En Integral360 acompañamos a empresas, instituciones y equipos de trabajo
-            con soluciones orientadas a mejorar la gestión, ordenar procesos,
-            fortalecer la operación y apoyar la transformación organizacional desde
-            una visión integral.
+            En Integral360 acompañamos a empresas, instituciones y equipos de trabajo con soluciones orientadas a mejorar la gestión, ordenar procesos, fortalecer la operación y apoyar la transformación organizacional desde una visión integral.
           </p>
 
           <div class="hero-actions">
-            <a class="btn btn-primary" href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-            <a class="btn btn-secondary" href="tel:+573163119312">Llamar ahora</a>
+            <a href="#contacto" class="btn btn-primary">Solicitar asesoría</a>
+            <a href="#servicios" class="btn btn-secondary">Ver servicios</a>
           </div>
 
           <div class="hero-points">
             <div class="hero-point">
               <strong>Integral</strong>
-              <span>Servicios articulados en diferentes frentes de gestión.</span>
+              <span>Servicios articulados en diferentes frentes de gestión para acompañar la evolución de la organización.</span>
             </div>
             <div class="hero-point">
               <strong>Práctico</strong>
-              <span>Soluciones pensadas para resolver necesidades reales.</span>
+              <span>Soluciones pensadas para resolver necesidades reales con enfoque claro y aplicable.</span>
             </div>
             <div class="hero-point">
               <strong>Escalable</strong>
-              <span>Procesos y herramientas que crecen con tu organización.</span>
+              <span>Procesos y herramientas que pueden crecer con la estructura y las necesidades del cliente.</span>
             </div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <h3>Enfoque corporativo y estratégico</h3>
-          <p>
-            Nuestra propuesta integra acompañamiento profesional, estructura
-            documental, fortalecimiento administrativo y apoyo tecnológico para
-            impulsar organizaciones más ordenadas, eficientes y sostenibles.
-          </p>
-          <p>
-            Trabajamos con una visión orientada a resultados, buscando que cada
-            intervención se traduzca en valor real para la operación y la toma de decisiones.
-          </p>
+        <aside class="hero-panel reveal">
+          <span class="panel-label">Enfoque corporativo y estratégico</span>
+          <h3 class="panel-title">Una propuesta diseñada para dar orden, soporte y proyección a la gestión organizacional.</h3>
+
+          <div class="panel-items">
+            <div class="panel-item">
+              <strong>Fortalecimiento de procesos</strong>
+              <span>Apoyamos la organización interna, la gestión documental y la mejora del funcionamiento institucional y empresarial.</span>
+            </div>
+            <div class="panel-item">
+              <strong>Visión articulada</strong>
+              <span>Integramos diferentes áreas de acompañamiento para entregar soluciones más completas y coherentes.</span>
+            </div>
+            <div class="panel-item">
+              <strong>Apoyo al crecimiento</strong>
+              <span>Impulsamos estructuras más ordenadas, eficientes y sostenibles desde una perspectiva moderna y profesional.</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="trust-strip section">
+      <div class="container">
+        <div class="trust-box reveal">
+          <div>
+            <h3>Trabajamos con organizaciones que necesitan confianza, estructura y una visión integral de crecimiento.</h3>
+          </div>
+          <div class="trust-tags">
+            <span>Entidades públicas</span>
+            <span>Empresas privadas</span>
+            <span>Organizaciones en crecimiento</span>
+            <span>Gestión estratégica</span>
+            <span>Fortalecimiento institucional</span>
+            <span>Transformación digital</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="nosotros">
+    <section class="section" id="nosotros">
       <div class="container">
-        <div class="section-head">
-          <h2>Sobre <span>Integral360</span></h2>
-          <p>
-            Somos una propuesta de servicios integrales orientada a apoyar el
-            fortalecimiento organizacional desde distintos frentes clave de gestión.
+        <div class="section-header reveal">
+          <h2 class="section-title">Sobre <span class="gold">Integral360</span></h2>
+          <p class="section-text">
+            Somos una propuesta de servicios integrales orientada a apoyar el fortalecimiento organizacional desde distintos frentes clave de gestión.
           </p>
         </div>
 
         <div class="about-grid">
-          <div class="card">
+          <article class="about-card reveal">
             <h3>Quiénes somos</h3>
             <p>
-              Integral360 nace con el propósito de brindar acompañamiento integral
-              a empresas, entidades e instituciones que requieren apoyo en áreas
-              administrativas, jurídicas, estratégicas y tecnológicas, con una mirada
-              práctica y orientada a la mejora continua.
+              Integral360 nace con el propósito de brindar acompañamiento integral a empresas, entidades e instituciones que requieren apoyo en áreas administrativas, jurídicas, estratégicas y tecnológicas, con una mirada práctica y orientada a la mejora continua.
             </p>
-          </div>
+          </article>
 
-          <div class="card">
+          <article class="about-card reveal">
             <h3>Nuestra visión de trabajo</h3>
             <p>
-              Entendemos que las organizaciones necesitan algo más que servicios aislados.
-              Por eso articulamos diferentes capacidades para ofrecer soluciones que ayuden
-              a ordenar, optimizar, modernizar y fortalecer la gestión desde una perspectiva completa.
+              Entendemos que las organizaciones necesitan algo más que servicios aislados. Por eso articulamos diferentes capacidades para ofrecer soluciones que ayuden a ordenar, optimizar, modernizar y fortalecer la gestión desde una perspectiva completa.
             </p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="servicios">
+    <section class="section" id="servicios">
       <div class="container">
-        <div class="section-head">
-          <h2>Nuestros <span>servicios</span></h2>
-          <p>
-            Desarrollamos soluciones adaptadas a las necesidades de cada organización,
-            integrando conocimiento técnico, gestión documental, acompañamiento estratégico
-            y herramientas para mejorar el desempeño institucional y empresarial.
+        <div class="section-header reveal">
+          <h2 class="section-title">Nuestros <span class="gold">servicios</span></h2>
+          <p class="section-text">
+            Desarrollamos soluciones adaptadas a las necesidades de cada organización, integrando conocimiento técnico, gestión documental, acompañamiento estratégico y herramientas para mejorar el desempeño institucional y empresarial.
           </p>
         </div>
 
         <div class="services-grid">
-          <article class="service-card">
-            <div class="icon">🛡️</div>
+          <article class="service-card reveal">
+            <div class="service-icon">🛡</div>
             <h3>Seguridad y Salud en el Trabajo (SST)</h3>
             <p>
-              Apoyamos procesos de implementación, actualización y seguimiento en
-              Seguridad y Salud en el Trabajo, fortaleciendo la prevención, el
-              cumplimiento normativo y la organización documental requerida para
-              una gestión responsable y estructurada.
+              Apoyamos procesos de implementación, actualización y seguimiento en Seguridad y Salud en el Trabajo, fortaleciendo la prevención, el cumplimiento normativo y la organización documental requerida para una gestión responsable y estructurada.
             </p>
+            <ul>
+              <li>Apoyo documental y organizacional</li>
+              <li>Fortalecimiento del cumplimiento</li>
+              <li>Enfoque preventivo y estructurado</li>
+            </ul>
           </article>
 
-          <article class="service-card">
-            <div class="icon">⚖️</div>
+          <article class="service-card reveal">
+            <div class="service-icon">⚖</div>
             <h3>Asesoría jurídica</h3>
             <p>
-              Brindamos acompañamiento en revisión documental, elaboración de
-              comunicaciones formales, apoyo a trámites administrativos y orientación
-              en aspectos jurídicos aplicables a la gestión institucional y empresarial.
+              Brindamos acompañamiento en revisión documental, elaboración de comunicaciones formales, apoyo a trámites administrativos y orientación en aspectos jurídicos aplicables a la gestión institucional y empresarial.
             </p>
+            <ul>
+              <li>Orientación jurídica aplicada</li>
+              <li>Apoyo a trámites y documentos</li>
+              <li>Enfoque preventivo y consultivo</li>
+            </ul>
           </article>
 
-          <article class="service-card">
-            <div class="icon">📊</div>
+          <article class="service-card reveal">
+            <div class="service-icon">📊</div>
             <h3>Gestión contable y administrativa</h3>
             <p>
-              Fortalecemos la organización administrativa y contable mediante apoyo en
-              estructuración de información, control documental y mejora de procesos internos
-              que aportan orden, claridad y seguimiento a la gestión.
+              Fortalecemos la organización administrativa y contable mediante apoyo en estructuración de información, control documental y mejora de procesos internos que aportan orden, claridad y seguimiento a la gestión.
             </p>
+            <ul>
+              <li>Orden administrativo</li>
+              <li>Control y trazabilidad documental</li>
+              <li>Mejora de procesos internos</li>
+            </ul>
           </article>
 
-          <article class="service-card">
-            <div class="icon">👥</div>
+          <article class="service-card reveal">
+            <div class="service-icon">👥</div>
             <h3>Recursos Humanos</h3>
             <p>
-              Diseñamos y apoyamos herramientas para la gestión del talento humano,
-              incluyendo control documental, contratos, seguimiento de personal y
-              optimización de procesos relacionados con la administración del recurso humano.
+              Diseñamos y apoyamos herramientas para la gestión del talento humano, incluyendo control documental, contratos, seguimiento de personal y optimización de procesos relacionados con la administración del recurso humano.
             </p>
+            <ul>
+              <li>Soporte a talento humano</li>
+              <li>Organización documental</li>
+              <li>Optimización de gestión interna</li>
+            </ul>
           </article>
 
-          <article class="service-card">
-            <div class="icon">🏛️</div>
+          <article class="service-card reveal">
+            <div class="service-icon">🏛</div>
             <h3>MIPG y fortalecimiento institucional</h3>
             <p>
-              Acompañamos entidades y organizaciones en la organización de información,
-              apoyo documental y estructuración de procesos alineados con lineamientos
-              de gestión institucional y mejora administrativa.
+              Acompañamos entidades y organizaciones en la organización de información, apoyo documental y estructuración de procesos alineados con lineamientos de gestión institucional y mejora administrativa.
             </p>
+            <ul>
+              <li>Apoyo a gestión institucional</li>
+              <li>Fortalecimiento organizacional</li>
+              <li>Mejora de estructura y procesos</li>
+            </ul>
           </article>
 
-          <article class="service-card">
-            <div class="icon">💻</div>
+          <article class="service-card reveal">
+            <div class="service-icon">💻</div>
             <h3>Tecnología y transformación digital</h3>
             <p>
-              Impulsamos la modernización mediante soluciones tecnológicas, automatización
-              de procesos, digitalización de información y herramientas adaptadas a la realidad
-              operativa de cada organización.
+              Impulsamos la modernización mediante soluciones tecnológicas, automatización de procesos, digitalización de información y herramientas adaptadas a la realidad operativa de cada organización.
             </p>
+            <ul>
+              <li>Digitalización de procesos</li>
+              <li>Automatización y soporte</li>
+              <li>Modernización organizacional</li>
+            </ul>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="porque">
+    <section class="section" id="porque">
       <div class="container">
-        <div class="section-head">
-          <h2>¿Por qué <span>elegirnos</span>?</h2>
-          <p>
-            Nuestra propuesta combina cercanía, visión estratégica y capacidad de articulación
-            para entregar soluciones con sentido práctico y valor organizacional.
+        <div class="section-header reveal">
+          <h2 class="section-title">¿Por qué <span class="gold">elegirnos</span>?</h2>
+          <p class="section-text">
+            Nuestra propuesta combina cercanía, visión estratégica y capacidad de articulación para entregar soluciones con sentido práctico y valor organizacional.
           </p>
         </div>
 
         <div class="why-grid">
-          <div class="why-item">
-            <strong>Visión integral</strong>
+          <article class="why-card reveal">
+            <h4>Visión integral</h4>
             <p>Unimos diferentes áreas de apoyo para responder de forma más completa a las necesidades del cliente.</p>
-          </div>
+          </article>
 
-          <div class="why-item">
-            <strong>Enfoque práctico</strong>
+          <article class="why-card reveal">
+            <h4>Enfoque práctico</h4>
             <p>Priorizamos soluciones aplicables, ordenadas y orientadas a mejorar procesos reales.</p>
-          </div>
+          </article>
 
-          <div class="why-item">
-            <strong>Adaptación al contexto</strong>
+          <article class="why-card reveal">
+            <h4>Adaptación al contexto</h4>
             <p>Cada propuesta se ajusta a la naturaleza, objetivos y condiciones de la organización.</p>
+          </article>
+
+          <article class="why-card reveal">
+            <h4>Apoyo tecnológico</h4>
+            <p>Incorporamos herramientas digitales como soporte para fortalecer la operación y la gestión.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section cta-section">
+      <div class="container">
+        <div class="cta-box reveal">
+          <div>
+            <h3>Hablemos de la mejor forma de fortalecer tu organización.</h3>
+            <p>
+              Estamos listos para acompañarte con soluciones integrales ajustadas a tus necesidades, con un enfoque serio, moderno y orientado a resultados.
+            </p>
           </div>
 
-          <div class="why-item">
-            <strong>Apoyo tecnológico</strong>
-            <p>Incorporamos herramientas digitales como soporte para fortalecer la operación y la gestión.</p>
+          <div class="cta-actions">
+            <a href="#contacto" class="btn btn-primary">Solicitar información</a>
+            <a href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Escribir por WhatsApp</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contacto">
+    <section class="section" id="contacto">
       <div class="container">
-        <div class="section-head">
-          <h2>Hablemos de tu <span>organización</span></h2>
-          <p>
-            Estamos listos para acompañarte con soluciones integrales ajustadas a tus necesidades.
+        <div class="section-header reveal">
+          <h2 class="section-title">Conversemos sobre tu <span class="gold">organización</span></h2>
+          <p class="section-text">
+            Cuéntanos qué necesita tu organización y conversemos sobre la mejor forma de apoyarte desde Integral360.
           </p>
         </div>
 
-        <div class="contact-wrap">
-          <div class="card">
+        <div class="contact-grid">
+          <div class="contact-card reveal">
             <h3>Datos de contacto</h3>
+            <p>
+              Puedes comunicarte con nosotros por los siguientes canales para recibir orientación inicial sobre nuestros servicios.
+            </p>
+
             <div class="contact-list">
               <div class="contact-item">
                 <strong>WhatsApp</strong>
-                <a href="https://wa.me/57316313119312" target="_blank" rel="noopener noreferrer">3163119312</a>
+                <a href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer">316 311 9312</a>
               </div>
 
               <div class="contact-item">
                 <strong>Línea telefónica</strong>
-                <a href="tel:+57316313119312">316313119312</a>
+                <span>316 311 9312</span>
               </div>
 
               <div class="contact-item">
                 <strong>Correo electrónico</strong>
-                <span>info@integral360.com.co</span>
+                <a href="mailto:info@integral360.com.co">info@integral360.com.co</a>
               </div>
 
               <div class="contact-item">
                 <strong>Sitio corporativo</strong>
-                <span>integral360.com.co</span>
+                <a href="https://integral360.com.co/" target="_blank" rel="noopener noreferrer">integral360.com.co</a>
               </div>
             </div>
           </div>
 
-          <div class="cta-box">
+          <div class="contact-form reveal">
             <h3>Solicita información</h3>
             <p>
-              Cuéntanos qué necesita tu organización y conversemos sobre la mejor forma
-              de apoyarte desde Integral360.
+              Déjanos tus datos y una breve descripción de tu necesidad.
             </p>
-            <div style="display:flex; gap:12px; flex-wrap:wrap;">
-              <a class="btn btn-primary" href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
-              <a class="btn btn-secondary" href="tel:+573163119312">Llamar</a>
-            </div>
+
+            <form action="mailto:info@integral360.com.co" method="post" enctype="text/plain">
+              <div class="form-row">
+                <input type="text" name="nombre" placeholder="Nombre completo" required />
+                <input type="text" name="empresa" placeholder="Empresa / entidad" />
+              </div>
+
+              <div class="form-row">
+                <input type="email" name="correo" placeholder="Correo electrónico" required />
+                <input type="tel" name="telefono" placeholder="Teléfono" />
+              </div>
+
+              <select name="servicio">
+                <option value="">Área de interés</option>
+                <option>Seguridad y Salud en el Trabajo (SST)</option>
+                <option>Asesoría jurídica</option>
+                <option>Gestión contable y administrativa</option>
+                <option>Recursos Humanos</option>
+                <option>MIPG y fortalecimiento institucional</option>
+                <option>Tecnología y transformación digital</option>
+              </select>
+
+              <textarea name="mensaje" placeholder="Cuéntanos brevemente tu necesidad"></textarea>
+
+              <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+            </form>
+
+            <p class="form-note">
+              También puedes escribirnos directamente por WhatsApp para una atención más rápida.
+            </p>
           </div>
         </div>
       </div>
@@ -764,8 +1180,76 @@
   </main>
 
   <footer>
-    Integral360 © 2026 · Soluciones integrales para empresas, instituciones y organizaciones
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand">
+            <div class="brand-mark">I360</div>
+            <div class="brand-text">
+              <h1>Integral360</h1>
+              <span>Soluciones empresariales integrales</span>
+            </div>
+          </div>
+          <p>
+            Soluciones integrales para empresas, instituciones y organizaciones con enfoque estratégico, corporativo y tecnológico.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Enlaces</h4>
+          <div class="footer-links">
+            <a href="#inicio">Inicio</a>
+            <a href="#nosotros">Nosotros</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#porque">Por qué elegirnos</a>
+            <a href="#contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <div class="footer-links">
+            <a href="mailto:info@integral360.com.co">info@integral360.com.co</a>
+            <a href="https://wa.me/573163119312" target="_blank" rel="noopener noreferrer">316 311 9312</a>
+            <p>Colombia</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="copyright">
+        © 2026 Integral360 · Todos los derechos reservados
+      </div>
+    </div>
   </footer>
+
+  <script>
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+
+    menuToggle.addEventListener("click", () => {
+      menuToggle.classList.toggle("active");
+      navMenu.classList.toggle("active");
+    });
+
+    document.querySelectorAll("nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuToggle.classList.remove("active");
+        navMenu.classList.remove("active");
+      });
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, {
+      threshold: 0.12
+    });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+  </script>
 
 </body>
 </html>
