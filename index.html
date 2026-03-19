@@ -50,8 +50,9 @@ nav a{
 .hero p{
   color:#ccc;
   margin-top:10px;
-  max-width:600px;
+  max-width:700px;
   margin:auto;
+  line-height:1.6;
 }
 
 .btn{
@@ -89,7 +90,7 @@ nav a{
 /* SERVICIOS */
 .services{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;
 }
 
@@ -106,9 +107,24 @@ nav a{
   transform:translateY(-5px);
 }
 
+.service h3{
+  margin-bottom:10px;
+}
+
+.service p{
+  color:#ccc;
+  line-height:1.5;
+  font-size:14px;
+}
+
 /* CONTACTO */
 .contact{
   text-align:center;
+}
+
+.contact p{
+  color:#ccc;
+  margin-bottom:20px;
 }
 
 /* FOOTER */
@@ -136,12 +152,13 @@ footer{
 <section class="hero">
   <h1>Integral<span>360</span></h1>
   <p>
-    Soluciones integrales para empresas, entidades públicas y organizaciones,
-    combinando gestión administrativa, jurídica y tecnológica.
+    Brindamos soluciones integrales orientadas al fortalecimiento de la gestión empresarial
+    y organizacional, combinando conocimiento técnico, acompañamiento estratégico y herramientas
+    tecnológicas que permiten optimizar procesos, mejorar el control interno y apoyar la toma
+    de decisiones.
   </p>
 
   <a href="https://wa.me/573162410970" class="btn gold">Contactar</a>
-  <a href="https://card.integral360.com.co" class="btn dark">Tarjeta digital</a>
 </section>
 
 <!-- SERVICIOS -->
@@ -151,33 +168,57 @@ footer{
   <div class="services">
 
     <div class="service">
-      <h3>SST</h3>
-      <p>Implementación y gestión en Seguridad y Salud en el Trabajo.</p>
+      <h3>Seguridad y Salud en el Trabajo (SST)</h3>
+      <p>
+        Apoyamos la implementación, actualización y seguimiento de sistemas de gestión en Seguridad
+        y Salud en el Trabajo, fortaleciendo la prevención de riesgos, el cumplimiento normativo y la
+        organización documental requerida por la normativa vigente.
+      </p>
     </div>
 
     <div class="service">
-      <h3>Jurídica</h3>
-      <p>Apoyo legal y estructuración documental.</p>
+      <h3>Asesoría Jurídica</h3>
+      <p>
+        Brindamos acompañamiento en la estructuración de documentos, elaboración de comunicaciones
+        formales, revisión de procesos administrativos y orientación en aspectos jurídicos aplicables
+        a la gestión institucional y empresarial.
+      </p>
     </div>
 
     <div class="service">
-      <h3>Contable</h3>
-      <p>Organización administrativa y soporte financiero.</p>
+      <h3>Gestión Contable y Administrativa</h3>
+      <p>
+        Apoyamos la organización de la información administrativa y contable, fortaleciendo los
+        procesos internos, el control documental y la correcta estructuración de la gestión financiera
+        de la organización.
+      </p>
     </div>
 
     <div class="service">
       <h3>Recursos Humanos</h3>
-      <p>Gestión del talento humano y documentación laboral.</p>
+      <p>
+        Diseñamos e implementamos herramientas para la gestión del talento humano, incluyendo control
+        documental, contratos, seguimiento de personal y optimización de procesos internos relacionados
+        con la administración del recurso humano.
+      </p>
     </div>
 
     <div class="service">
-      <h3>MIPG</h3>
-      <p>Fortalecimiento institucional y gestión pública.</p>
+      <h3>MIPG y Gestión Institucional</h3>
+      <p>
+        Acompañamos a entidades en el fortalecimiento de su gestión institucional mediante la
+        organización de información, apoyo documental y estructuración de procesos alineados con el
+        Modelo Integrado de Planeación y Gestión (MIPG).
+      </p>
     </div>
 
     <div class="service">
-      <h3>Tecnología</h3>
-      <p>Desarrollo, automatización y soluciones digitales.</p>
+      <h3>Tecnología y Transformación Digital</h3>
+      <p>
+        Desarrollamos e implementamos soluciones tecnológicas orientadas a la automatización de procesos,
+        digitalización de la información y mejora de la eficiencia operativa mediante herramientas
+        modernas y adaptadas a cada organización.
+      </p>
     </div>
 
   </div>
@@ -186,7 +227,9 @@ footer{
 <!-- CONTACTO -->
 <section class="section contact" id="contacto">
   <h2>Contacto</h2>
-  <p>Hablemos sobre cómo podemos ayudarte.</p>
+  <p>
+    Contáctanos para conocer cómo Integral360 puede apoyar el fortalecimiento de tu organización.
+  </p>
 
   <a href="https://wa.me/573162410970" class="btn gold">WhatsApp</a>
   <a href="tel:+573162410970" class="btn dark">Llamar</a>
